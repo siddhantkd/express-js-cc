@@ -312,6 +312,31 @@ router.post("/", (req, res) => {
 * For the email ```req.body.email```
 * Then we push the newMember in our hardcoded database(array) and return the whole array
 
+## PUT Request -  Update entries 
+
+**When we have to update something on the server - PUT Request**
+
+```javascript
+//Update Member
+router.put("/:id", (req, res) => {
+  const found = members.some((member) => member.id === parseInt(req.params.id));
+  if (found) {
+    const updMember = req.body;
+    members.forEach((member) => {
+      if (member.id === parseInt(req.params.id)) {
+        member.name = updMember.name ? updMember.name : member.name;
+        member.email = updMember.email ? updMember.email : member.email;
+        res.json({ msg: "Member Updated", member });
+      }
+    });
+  } else {
+    res.status(400).json({ msg: `No Member with the ID of ${req.params.id}` });
+  }
+});
+
+```
+* We are creating the const updMember to get the email and name by ```req.body```
+* Then we  loop through the members we have and check to see if it matches the id, if it does, we update. The problem is they might update the email and not the name or vise versa, so we would check if the name and email are actually sent, so we'll use ternary operator
 
 
 
