@@ -343,5 +343,90 @@ router.put("/:id", (req, res) => {
 * Change Header - Content-Type application/json
 * Body - raw - make the new changes
 
+## DELETE Request 
 
+* In Delete we will use filte but not ```!==``` to filter out the one with the id.
+* In **POSTMAN** and make a Delete request ```http://localhost:8000/api/members/1```
+* It will show the members besides the one with ID 1
+
+```javascript
+//Delete Member
+router.delete("/:id", (req, res) => {
+  const found = members.some((member) => member.id === parseInt(req.params.id));
+  if (found) {
+    res.json(members.filter((member) => member.id !== parseInt(req.params.id)));
+  } else {
+    res.status(400).json({ msg: `No Member with ID ${req.params.id}` });
+  }
+});
+
+```
+
+## Rendering Templates
+
+**Express Handlebars**
+
+[Express Handlebars Documentation](https://www.npmjs.com/package/express-handlebars)
+
+* Inside views>layouts>main.handlebars - Bootstrap CDN is included
+
+```javascript
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Example App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-4">
+        {{{body}}}
+    </div>
+</body>
+
+</html>
+```
+* To add a view to home page - Create a file index.handlebars inside views>index.handlebards we add the html code
+
+```<h1 class="text-center mb-3">{{title}}</h1>```
+
+* title is a variable and it has to be included within double {{}}. Variable is initialised in index.js 
+
+```javascript
+
+//Home Page
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Member App",
+  });
+});
+
+```
+* Add members from our database array to the home page
+
+**index.js**
+```javascript
+//Home Page
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Member App",
+    members,
+  });
+});
+```
+**Index.handlebars**
+```html
+<h1 class="text-center mb-3">{{title}}</h1>
+<h4>Members</h4>
+<ul class="list-group">
+    {{#each members}}
+    <li class="list-group-item">{{this.name}}:{{this.email}}</li>
+    {{/each}}
+</ul>
+```
+
+**The End !>_<**
 
