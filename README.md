@@ -339,4 +339,9 @@ router.put("/:id", (req, res) => {
 * Then we  loop through the members we have and check to see if it matches the id, if it does, we update. The problem is they might update the email and not the name or vise versa, so we would check if the name and email are actually sent, so we'll use ternary operator
 
 
+**In POSTMAN**
+* Change Header - Content-Type application/json
+* Body - raw - make the new changes
+
+
 
