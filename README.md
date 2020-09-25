@@ -82,5 +82,12 @@ app.get('/', function(req,res) {
 * Create index.js
 * Install nodemon for auto update of server ```npm i nodemon```
 
+## Starting a simple express Server 
 
+```javascript 
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => console.log("Server Started"));
+```
 
