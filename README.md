@@ -75,3 +75,12 @@ app.get('/', function(req,res) {
 * Middleware also third party. 
 * Custom Middleware - Making changes to request and response object, Ending response cycle, Calling next middleware in the stack, 
 
+# Setting up our app
+
+* Create package.json ```javascript npm init```
+* Install express ```javascript npm i express```
+* Create index.js
+* Install nodemon for auto update of server ```javascript npm i nodemon```
+
+
+
