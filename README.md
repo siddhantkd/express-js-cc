@@ -245,5 +245,25 @@ app.get("/api/members/:id", (req, res) => {
 
 * ```req.status(400)``` - Gives 400 Bad Request with the message incuded in ```json({msg:})```
 
+## Routes folder for the routes 
 
+Note - 
+
+* Having all the routes in a single file might get messy.
+* We move all the routes to a folder - router>api>members.js
+* In order to use the routes we need to require express and router at the top
+
+```javascript 
+const express = require('express')
+const router = express.Router()
+const members = require("../../Members");
+
+```
+* ```../../``` is to get out of api>routes and and into the main root because our Members database is in that folder
+* In our index.js we replace the routes with 
+
+```javascript 
+app.use("/api/members", require("./routes/api/members"));
+```
+* Since we are using ```/api/members``` in our index.js app.use code we can replace ```/api/members``` in routes which are in routes folder with ```/``` .
 
