@@ -91,3 +91,32 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log("Server Started"));
 ```
 
+## Creating a Route
+```javascript
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Responding to request <br><h1>Hello World </h1>");
+});
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => console.log("Server Started"));
+
+```
+
+### Note 
+
+* Everytime anything is changed the server needs to be stopped and restarted 
+* For the above problem - Install nodemon ```npm i -D nodemon```
+* ```-D``` in the above code is we want nodemon development only it will not work in production.
+* After installation change scripts in package.json
+
+```javascript
+"scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+```
+* Start the server ```npm run dev```
+
