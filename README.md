@@ -267,3 +267,51 @@ app.use("/api/members", require("./routes/api/members"));
 ```
 * Since we are using ```/api/members``` in our index.js app.use code we can replace ```/api/members``` in routes which are in routes folder with ```/``` .
 
+## POST Request - Creating New entries in Database(Members)
+
+**When we add something or create something to the server -  POST request**
+
+* use ```router.post``` 
+
+```javascript 
+router.post("/", (req, res) => {
+  const newMember = {
+    res.send(req.body)
+  };
+
+```
+*  ```/``` to hit the ```api/members```
+* ```(req,res) => {} ``` callback function
+* uuid is a npm package that generates a random user id ```npm i uuid``` and bring it in our members ```const uuid = require('uuid')```
+* To parse the data we are sending in we need a body parser
+
+```javascript
+//body parser middleware
+app.use(express.json())
+app.use(express.urlencoded(extended: false))
+```
+Now -
+```javascript 
+//Create Member
+router.post("/", (req, res) => {
+  const newMember = {
+    id: uuid.v4(),
+    name: req.body.name,
+    email: req.body.email,
+    status: "active",
+  };
+
+  if (!newMember.name || !newMember.email) {
+    return res.status(400).json({ msg: "Please include a name and email" });
+  }
+  members.push(newMember);
+  res.json(members);
+});
+```
+* For the name property, we'll get that from the request body ```req.body.name```
+* For the email ```req.body.email```
+* Then we push the newMember in our hardcoded database(array) and return the whole array
+
+
+
+
