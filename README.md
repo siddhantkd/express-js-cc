@@ -157,4 +157,39 @@ app.listen(PORT, () => console.log("Server Started"));
 
 * Just works like a static site with contents inside public folder
 
-## 
+## Creating a REST API 
+
+```javascript 
+
+const members = [
+  {
+    id: 1,
+    name: "Madara Uchiha",
+    email: "madara@gmail.com",
+    status: "active",
+  },
+  {
+    id: 2,
+    name: "Obito Uchiha",
+    email: "obi@gmail.com",
+    status: "inactive",
+  },
+  {
+    id: 3,
+    name: "Kakashi Hatake",
+    email: "Kakashi@gmail.com",
+    status: "active",
+  },
+];
+
+app.get("/api/members", (req, res) => {
+  res.json(members);
+});
+
+```
+
+* We want to return this json when we hit route 
+* This can be done by react or angular or in postman 
+* POSTMAN is used here to hit the route and get the members
+
+
