@@ -18,17 +18,23 @@ Repository for getting acquainted with express JS.
 * JS, ES6
 * Basic Node.js and npm(node package manager)
 
+## Basic Server Syntax
+
 ```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
- 
-```python
-s = "Python syntax highlighting"
-print s
-```
- 
-```
-No language indicated, so no syntax highlighting. 
-But let's throw in a <b>tag</b>.
+const express = require('express');
+
+//Init Express
+
+const app = express();
+
+Create endpoints/route handlers
+
+app.get('/', function(req,res) {
+ res.send('Hello Bilahi');
+});
+
+//Listen to a port 
+
+app.listen(8000);
+
 ```
