@@ -1,0 +1,30 @@
+{
+  "name": "express-js-cc",
+  "version": "1.0.0",
+  "description": "Repository for getting acquainted with express JS.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddhantkd/express-js-cc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddhantkd/express-js-cc/issues"
+  },
+  "homepage": "https://github.com/siddhantkd/express-js-cc#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "moment": "^2.29.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
