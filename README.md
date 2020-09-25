@@ -216,5 +216,34 @@ module.exports = logger;
 * For date install moment using npm ```npm i moment``` and require is using ```require()``` method at the top.
 * ```${moment().format()}``` gives the date
 
+## Getting a single member from member database with ID
+
+```javascript
+app.get("/api/members/:id", (req, res) => {
+  res.json(members.filter((member) => member.id === parseInt(req.params.id)));
+});
+```
+#### Note
+
+* req.params.id is string so we need to parseInt() it to match the data type of member ID from database
+
+### If member of that particular ID doesn't exist the way we set up our API is on us. ex: 
+
+```javascript 
+
+//Get Single Member
+app.get("/api/members/:id", (req, res) => {
+  const found = members.some((member) => member.id === parseInt(req.params.id));
+  if (found) {
+    res.json(members.filter((member) => member.id === parseInt(req.params.id)));
+  } else {
+    res.status(400).json({ msg: `No Member with the ID of ${req.params.id}` });
+  }
+});
+
+```
+
+* ```req.status(400)``` - Gives 400 Bad Request with the message incuded in ```json({msg:})```
+
 
 
