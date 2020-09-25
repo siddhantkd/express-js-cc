@@ -77,10 +77,10 @@ app.get('/', function(req,res) {
 
 # Setting up our app
 
-* Create package.json ```javascript npm init```
-* Install express ```javascript npm i express```
+* Create package.json ```npm init```
+* Install express ```npm i express```
 * Create index.js
-* Install nodemon for auto update of server ```javascript npm i nodemon```
+* Install nodemon for auto update of server ```npm i nodemon```
 
 
 
