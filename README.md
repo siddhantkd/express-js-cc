@@ -18,6 +18,10 @@ Repository for getting acquainted with express JS.
 * JS, ES6
 * Basic Node.js and npm(node package manager)
 
+## Before getting into code - Requirements 
+* Node.js
+* Postman
+
 ## Basic Server Syntax
 
 ```javascript
@@ -71,5 +75,3 @@ app.get('/', function(req,res) {
 * Middleware also third party. 
 * Custom Middleware - Making changes to request and response object, Ending response cycle, Calling next middleware in the stack, 
 
-## Before getting into npm json file - requirements 
-* Node.js
