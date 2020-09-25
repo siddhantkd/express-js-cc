@@ -47,4 +47,30 @@ app.listen(8000);
 
 ## Basic Route Handling 
 
+```javascript 
+app.get('/', function(req,res) {
+ 
+//Fetch from database
+//MongoDB, mySQL, etc can be used 
+//Load Pages
+//Return JSON Data
+//Full access to Request and Response
+
+});
+
+```
+* Request object - HTTP Request parameters - URLparameters, query
+* Response object - HTTP Response - Send back JSON Data, Render a template, redirect etc
+* We can parse incoming data with Body Parser
+* No need to store routes in one file. Express has a router that can store routes in seperate files and export them 
+
+## Express Middleware 
+
+* Middleware functions are functions which have access to request and response object. 
+* Express has built in middleware.
+* Middleware also third party. 
+* Custom Middleware
+..* Making changes to request and response object 
+..* Ending response cycle 
+..* Calling next middleware in the stack 
 
