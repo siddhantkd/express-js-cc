@@ -417,7 +417,7 @@ app.get("/", (req, res) => {
   });
 });
 ```
-**Index.handlebars**
+**index.handlebars**
 ```html
 <h1 class="text-center mb-3">{{title}}</h1>
 <h4>Members</h4>
