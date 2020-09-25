@@ -71,3 +71,5 @@ app.get('/', function(req,res) {
 * Middleware also third party. 
 * Custom Middleware - Making changes to request and response object, Ending response cycle, Calling next middleware in the stack, 
 
+## Before getting into npm json file - requirements 
+* Node.js
