@@ -192,4 +192,29 @@ app.get("/api/members", (req, res) => {
 * This can be done by react or angular or in postman 
 * POSTMAN is used here to hit the route and get the members
 
+## Middleware - Creating a logger 
+
+```javascript 
+const moment = require("moment");
+
+const logger = (req, res, next) => {
+  console.log(
+    `${req.protocol}://${req.get("host")}${
+      req.originalUrl
+    }: ${moment().format()}`
+  );
+  next();
+};
+
+module.exports = logger;
+
+```
+* We are creating a middleware function logger that takes in (req, res, next)
+* We are loging the URL thats hit and the date. 
+* The URL is access is using request object ```req.protocol``` this will give us HTTP, Then we type ```://``` and get the host ```req.get("host")``` after that we get the original URL ```req.originalUrl```.
+* If we go to postman and send a request and look in the console. We'd get the whole URL that's hit. ```http://localhost:5000/api/members```
+* For date install moment using npm ```npm i moment``` and require is using ```require()``` method at the top.
+* ```${moment().format()}``` gives the date
+
+
 
