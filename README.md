@@ -27,7 +27,7 @@ const express = require('express');
 
 const app = express();
 
-Create endpoints/route handlers
+//Create endpoints/route handlers
 
 app.get('/', function(req,res) {
  res.send('Hello Bilahi');
@@ -38,3 +38,13 @@ app.get('/', function(req,res) {
 app.listen(8000);
 
 ```
+* The require() method is used to load and cache JavaScript modules. So here it is used to bring express to the top.
+* To initialise express we put the express() method to a variable usually called app.
+* We are accepting a Get request to the index route '/' and we use a callback function.
+* Responding with a text hello world. 
+* Listening to the port 8000. 
+* http://localhost:8000/ Will show the response of get request. 
+
+## Basic Route Handling 
+
+
