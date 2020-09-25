@@ -120,3 +120,41 @@ app.listen(PORT, () => console.log("Server Started"));
 ```
 * Start the server ```npm run dev```
 
+## Sending a HTML file in response 
+
+```javascript
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => console.log("Server Started"));
+
+```
+
+## Setting a folder as static folder
+
+```javascript
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+//Set Static folder
+
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => console.log("Server Started"));
+
+```
+### Note
+
+* Just works like a static site with contents inside public folder
+
+## 
